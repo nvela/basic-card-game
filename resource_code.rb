@@ -21,22 +21,6 @@ class Deck
   end
 end
 
-# people with Ruby 1.9 (or 1.8.7 with backports) can safely ignore this duck punch
-class Array
-  # knuth-fisher-yates shuffle algorithm
-  def shuffle!
-    n = length
-    for i in 0...n
-      r = rand(n-i)+i
-      self[r], self[i] = self[i], self[r]
-    end
-    self
-  end
-  def shuffle
-    dup.shuffle!
-  end
-end
-
 # test
 d = Deck.new
 d.cards.each do |card|
